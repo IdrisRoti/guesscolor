@@ -24,10 +24,6 @@ function App() {
       setTimeout(() => {
         setTargetColor(genRandomColor());
       }, 500);
-    } else {
-      setTimeout(() => {
-        setShowAlert(true);
-      }, 500);
     }
   };
 
@@ -94,17 +90,6 @@ function App() {
           </div>
         </main>
       </div>
-
-      {showAlert && (
-        <div className="alertOverlay">
-          <div className="alertBox">
-            <div className="">
-              Your score: <span>{score}</span>
-            </div>
-            <button onClick={resetGame}>Play Again</button>
-          </div>
-        </div>
-      )}
     </>
   );
 }
