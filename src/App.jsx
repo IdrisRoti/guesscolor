@@ -8,7 +8,6 @@ function App() {
   const [score, setScore] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState(null);
-  const [showAlert, setShowAlert] = useState(false);
 
   const resetGame = () => {
     setScore(0);
@@ -28,7 +27,6 @@ function App() {
   };
 
   useEffect(() => {
-    setShowAlert(false);
     setSelectedOption(null);
     setOptions(genOptions(targetColor));
   }, [targetColor]);
@@ -63,14 +61,14 @@ function App() {
                     }}
                     className="option"
                   >
-                    {selectedOption === option &&
-                      selectedOption === targetColor && (
-                        <span data-testid="gameStatus">✅</span>
-                      )}
-                    {selectedOption === option &&
-                      selectedOption !== targetColor && (
-                        <span data-testid="gameStatus">❌</span>
-                      )}
+                    <span data-testid="gameStatus">
+                      {selectedOption === option &&
+                        selectedOption === targetColor &&
+                        "Correct ✅"}
+                      {selectedOption === option &&
+                        selectedOption !== targetColor &&
+                        "Wrong ❌"}
+                    </span>
                   </button>
                 );
               })}
